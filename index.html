@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileFlow — File Sharing Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">F</div><div><strong>FileFlow</strong><span>File Sharing Platform</span></div></div>
+    <nav>
+      <button class="nav-item active" data-view="dashboard">⌂ <span>Dashboard</span></button>
+      <button class="nav-item" data-view="files">▣ <span>My Files</span></button>
+      <button class="nav-item" data-view="shared">↗ <span>Shared</span></button>
+      <button class="nav-item" data-view="recent">◷ <span>Recent</span></button>
+      <button class="nav-item" data-view="analytics">◔ <span>Analytics</span></button>
+    </nav>
+    <div class="storage-card">
+      <div class="storage-top"><span>Storage</span><strong id="storageText">6.4 GB / 15 GB</strong></div>
+      <div class="progress"><i id="storageBar"></i></div>
+      <small>Secure cloud storage</small>
+    </div>
+    <div class="sidebar-bottom">Secure sharing • Version control<br>© 2026 FileFlow</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="pageTitle">Dashboard</h1>
+        <p id="pageSubtitle">Manage your files, folders and sharing activity.</p>
+      </div>
+      <div class="top-actions">
+        <div class="search"><span>⌕</span><input id="searchInput" placeholder="Search files..." /></div>
+        <button class="icon-btn" id="notificationBtn" title="Notifications">🔔<b id="notifDot"></b></button>
+        <div class="avatar">NT</div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="view active-view">
+      <div class="hero">
+        <div><span class="eyebrow">FILE MANAGEMENT</span><h2>Everything you need to<br><em>share files securely.</em></h2><p>Upload, organize, preview and share your files from one simple workspace.</p></div>
+        <button class="primary" id="heroUpload">＋ Upload Files</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Total Files</span><strong id="totalFiles">24</strong><small>+3 this week</small></div>
+        <div class="stat"><span>Shared Files</span><strong id="sharedFiles">8</strong><small>4 active links</small></div>
+        <div class="stat"><span>Storage Used</span><strong>42.6%</strong><small>6.4 GB of 15 GB</small></div>
+        <div class="stat"><span>Activity</span><strong>92%</strong><small>↑ 12% this month</small></div>
+      </div>
+      <div class="section-head"><div><h3>Recent files</h3><p>Your latest file activity</p></div><button class="text-btn" data-view-link="files">View all →</button></div>
+      <div class="file-table" id="fileTable"></div>
+    </section>
+
+    <section id="files" class="view">
+      <div class="section-head"><div><h3>My Files</h3><p>Upload and organize your documents.</p></div><button class="primary" id="uploadBtn">＋ Upload Files</button></div>
+      <div class="dropzone" id="dropzone"><div class="drop-icon">↑</div><h3>Drop files here</h3><p>or click to browse from your computer</p><button class="secondary">Choose Files</button><input type="file" id="fileInput" multiple hidden></div>
+      <div class="file-table" id="allFiles"></div>
+    </section>
+
+    <section id="shared" class="view">
+      <div class="section-head"><div><h3>Shared Files</h3><p>Control permissions and secure links.</p></div><button class="primary" id="shareNew">＋ Create Share Link</button></div>
+      <div class="share-grid" id="shareGrid"></div>
+    </section>
+
+    <section id="recent" class="view">
+      <div class="section-head"><div><h3>Recent Activity</h3><p>Track uploads, previews and shares.</p></div></div>
+      <div class="activity" id="activityList"></div>
+    </section>
+
+    <section id="analytics" class="view">
+      <div class="section-head"><div><h3>Usage Analytics</h3><p>Understand storage and collaboration activity.</p></div></div>
+      <div class="analytics-grid">
+        <div class="chart-card"><h3>Weekly activity</h3><div class="bars"><i style="height:45%"><b>Mon</b></i><i style="height:65%"><b>Tue</b></i><i style="height:52%"><b>Wed</b></i><i style="height:82%"><b>Thu</b></i><i style="height:70%"><b>Fri</b></i><i style="height:92%"><b>Sat</b></i><i style="height:60%"><b>Sun</b></i></div></div>
+        <div class="chart-card"><h3>File categories</h3><div class="donut"><div><strong>42%</strong><span>Documents</span></div></div><div class="legend"><span>Documents 42%</span><span>Images 28%</span><span>Code 18%</span><span>Other 12%</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-box"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
